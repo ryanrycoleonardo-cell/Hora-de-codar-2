@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Exercícios de JavaScript</title>
+</head>
+<body>
+    <h1>Exercícios 1 a 11</h1>
+
+    <script>
+
+        //Exercicio 1
+        <script>
+    var num1 = parseFloat(prompt("Digite o primeiro número:"));
+    var num2 = parseFloat(prompt("Digite o segundo número:"));
+    var maior = num1 > num2 ? num1 : num2;
+    alert("O maior número é: " + maior);
+</script>
+
+      //Exercicio 2
+
+      <script>
+    var valor = parseFloat(prompt("Digite um número:"));
+    if (valor > 0) {
+        alert("Positivo");
+    } else if (valor < 0) {
+        alert("Negativo");
+    } else {
+        alert("Zero");
+    }
+</script>
+
+    //Exercicio 3
+
+    <script>
+    var a = parseFloat(prompt("Digite o primeiro número:"));
+    var b = parseFloat(prompt("Digite o segundo número:"));
+    var c = parseFloat(prompt("Digite o terceiro número:"));
+    var maior = Math.max(a, b, c);
+    alert("O maior número é: " + maior);
+</script>
+
+    //Exercicio 4
+
+    <script>
+    var n1 = parseFloat(prompt("Digite o primeiro número:"));
+    var n2 = parseFloat(prompt("Digite o segundo número:"));
+    var n3 = parseFloat(prompt("Digite o terceiro número:"));
+    
+    var menores = Math.min(n1, n2, n3);
+    var soma = n1 + n2 + n3 - menores;
+    
+    alert("A soma dos dois maiores é: " + soma);
+</script>
+
+     //Exercicio 5
+
+     <script>
+    var valores = [];
+    var soma = 0;
+    
+    for (let i = 0; i < 6; i++) {
+        valores.push(parseFloat(prompt("Digite o " + (i+1) + "º número:")));
+        soma += valores[i];
+    }
+    
+    var media = soma / 6;
+    alert("Números informados: " + valores.join(", ") + "\nMédia: " + media.toFixed(2));
+</script>
+
+      //Exercicio 6
+
+      <script>
+    var numeros = [];
+    
+    for (let i = 0; i < 4; i++) {
+        numeros.push(parseFloat(prompt("Digite o " + (i+1) + "º número:")));
+    }
+    
+    var maior = Math.max(...numeros);
+    alert("Primeiro: " + numeros[0] + "\nÚltimo: " + numeros[3] + "\nMaior: " + maior);
+</script>
+
+     //Exercicio 7
+
+     <script>
+    var numeros = [];
+    var soma = 0;
+    
+    for (let i = 0; i < 6; i++) {
+        let num = parseFloat(prompt("Digite o " + (i+1) + "º número:"));
+        numeros.push(num);
+        if (num < 72) {
+            soma += num;
+        }
+    }
+    
+    alert("Valores informados: " + numeros.join(", ") + "\nSoma dos menores que 72: " + soma);
+</script>
+
+      //Exercicio 8
+
+      <script>
+    var numeros = [];
+    var soma = 0;
+    var valido = true;
+    
+    for (let i = 0; i < 4; i++) {
+        let num = parseFloat(prompt("Digite o " + (i+1) + "º número (entre 0 e 10):"));
+        
+        if (num <= 0 || num >= 10) {
+            alert("Número inválido! Deve ser entre 0 e 10.");
+            valido = false;
+            break;
+        }
+        
+        numeros.push(num);
+        soma += num;
+    }
+    
+    if (valido) {
+        let media = soma / 4;
+        if (media > 5) {
+            alert("Você passou no teste! Média: " + media.toFixed(2));
+        } else {
+            alert("Tente novamente. Média: " + media.toFixed(2));
+        }
+    }
+</script>
+
+       //Exercicio 9
+
+       <script>
+    var anoNascimento = parseInt(prompt("Digite seu ano de nascimento:"));
+    var anoAtual = new Date().getFullYear();
+    var idade = anoAtual - anoNascimento;
+    
+    if (idade >= 16) {
+        alert("Você PODE votar este ano! Idade: " + idade + " anos");
+    } else {
+        alert("Você NÃO PODE votar este ano! Idade: " + idade + " anos");
+    }
+</script>
+
+      //Exercicio 10
+
+      <script>
+    var altura = parseFloat(prompt("Digite sua altura (em metros):"));
+    var genero = parseInt(prompt("Digite o gênero (1: Feminino, 2: Masculino):"));
+    var pesoIdeal;
+    
+    if (genero === 1) {
+        pesoIdeal = (62.1 * altura) - 44.7;
+        alert("Peso ideal: " + pesoIdeal.toFixed(2) + " kg (Feminino)");
+    } else if (genero === 2) {
+        pesoIdeal = (72.7 * altura) - 58;
+        alert("Peso ideal: " + pesoIdeal.toFixed(2) + " kg (Masculino)");
+    } else {
+        alert("Gênero inválido!");
+    }
+</script>
+
+     //Exercicio 11
+
+     <script>
+
+     function microCalculadora() {
+    console.log("=== MICRO CALCULADORA ===");
+    
+    const valor1 = parseInt(prompt("Digite o primeiro valor inteiro:"));
+    const valor2 = parseInt(prompt("Digite o segundo valor inteiro:"));
+    
+    console.log("\nOperações disponíveis:");
+    console.log("1. Adição");
+    console.log("2. Subtração");
+    console.log("3. Divisão");
+    console.log("4. Multiplicação");
+    
+    const operacao = parseInt(prompt("\nDigite o código da operação (1-4):"));
+    
+    let resultado;
+    let operacaoSimbolo;
+    let operacaoTexto;
+    
+    switch (operacao) {
+        case 1:
+            resultado = valor1 + valor2;
+            operacaoSimbolo = '+';
+            operacaoTexto = 'Adição';
+            break;
+        
+        case 2:
+            resultado = valor1 - valor2;
+            operacaoSimbolo = '-';
+            operacaoTexto = 'Subtração';
+            break;
+        
+        case 3:
+            if (valor2 === 0) {
+                console.log("Erro: Divisão por zero não é permitida!");
+                return;
+            }
+            resultado = valor1 / valor2;
+            operacaoSimbolo = '/';
+            operacaoTexto = 'Divisão';
+            break;
+        
+        case 4:
+            resultado = valor1 * valor2;
+            operacaoSimbolo = '×';
+            operacaoTexto = 'Multiplicação';
+            break;
+        
+        default:
+            console.log("Erro: Código de operação inválido! Digite apenas 1, 2, 3 ou 4.");
+            return;
+    }
+    
+    console.log(`\nOperação: ${operacaoTexto}`);
+    console.log(`Resultado: ${valor1} ${operacaoSimbolo} ${valor2} = ${resultado}`);
+}
+
+microCalculadora();
+
+</script>
+
+</body>
+</html>
